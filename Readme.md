@@ -5,7 +5,7 @@ Grundsätzlich sind derzeit alle Komponenten in Docker gehostet.
 Dadurch ist die gesamet Lösung plattformunabhängig und kann daher auf allen gängigen OS ausgeführt werden.
 
 In der folgenden Darstellung kann man den aktuellen Containeraufbau des Projektes sehen:
-![Darstellung der Containerlösung](./doc/container-struct.png)
+![Darstellung der Containerlösung](./doc/images/container_architecture.png)
 
 ## Ausführung
 
@@ -41,5 +41,5 @@ Um die Datenbank leichter zu verwalten, wurde eine das Tool PG-Admin4 als Interf
 
 Um auf PG-Admin4 zuzugreifen muss einfach auf die Adresse `localhost:8080` zugegriffen werden.
 Es sollte ein Login-Seite erscheinen die wie folgt ausschaut:
-![Admin von PG-Admin](doc/pg_admin_login.png)
+![Admin von PG-Admin](doc/images/pg_admin_login.png)
 Hier kann man sich mit den konfigurierten werden für das Admin-Tool anmelden.
