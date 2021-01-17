@@ -37,9 +37,9 @@ ADMIN_PASSWORD=<Passwort für PG-Admin>
 
 ## PG-Admin4
 
-Um die Datenbank leichter zu verwalten, wurde eine das Tool PG-Admin4 als Interface zur Datenbank hinzugefügt.
+Um die Datenbank leichter zu verwalten, wurde das Tool PG-Admin4 als Interface zur Datenbank hinzugefügt.
 
 Um auf PG-Admin4 zuzugreifen muss einfach auf die Adresse `localhost:8080` zugegriffen werden.
 Es sollte ein Login-Seite erscheinen die wie folgt ausschaut:
 ![Admin von PG-Admin](doc/images/pg_admin_login.png)
-Hier kann man sich mit den konfigurierten werden für das Admin-Tool anmelden.
+Die Logindaten können in der .env Datei konfiguriert werden.
