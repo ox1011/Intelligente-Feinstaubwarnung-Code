@@ -7,6 +7,22 @@ Dadurch ist die gesamet Lösung plattformunabhängig und kann daher auf allen g�
 In der folgenden Darstellung kann man den aktuellen Containeraufbau des Projektes sehen:
 ![Darstellung der Containerlösung](./doc/images/container_architecture.png)
 
+## Konfiguration
+
+Die Konfiguration *muss* über das `.env`-File vorgenommen werden.
+Derzeit werden folgende Settings benötigt:
+``` sh 
+DB_HOST=<IP-Adresse von der DB>
+DB_PORT=<Port von der DB> 
+DB_NAME=<Name der Datenbank>
+DB_USER=<User für Operationen>
+DB_PASSWD=<Passwort für DB>
+ADMIN_MAIL=<Email für PG-Admin>
+ADMIN_PASSWORD=<Passwort für PG-Admin>
+```
+
+Sollte kein `.env`-File erstellt werden, kann die Anwendung nicht gestartet werden.
+
 ## Ausführung
 
 Zur Ausführung des Projektes müssen nur zwei Kommandos ausgeführt werden:
@@ -19,20 +35,6 @@ Zur Ausführung des Projektes müssen nur zwei Kommandos ausgeführt werden:
 2. Eigentliche Ausführung des Projektes
 ``` sh
     docker-compose up -d
-```
-
-## Konfiguration
-
-Die Konfiguration kann über das `.env`-File vorgenommen werden.
-Derzeit sind folgende Settings möglich:
-``` sh 
-DB_HOST=<IP-Adresse von der DB>
-DB_PORT=<Port von der DB> 
-DB_NAME=<Name der Datenbank>
-DB_USER=<User für Operationen>
-DB_PASSWD=<Passwort für DB>
-ADMIN_MAIL=<Email für PG-Admin>
-ADMIN_PASSWORD=<Passwort für PG-Admin>
 ```
 
 ## PG-Admin4

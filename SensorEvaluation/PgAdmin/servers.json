@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "ParticulateMatter",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "updateUser",
+            "Host": "db",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
