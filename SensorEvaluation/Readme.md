@@ -1,5 +1,16 @@
 # Deployment-Guide für Docker-Compose
 
+  - [Aufbau](#aufbau)
+  - [Konfiguration](#konfiguration)
+  - [Ausführung](#ausführung)
+  - [PG-Admin4](#pg-admin4)
+  - [Entwicklungs-Guide](#entwicklungs-guide)
+    - [Docker-Compose Setup](#docker-compose-setup)
+    - [TimescaleDB Setup](#timescaledb-setup)
+    - [Grafana Setup](#grafana-setup)
+    - [PgAdmin Setup](#pgadmin-setup)
+    - [Python-Script Setup](#python-script-setup)
+
 ## Aufbau
 Grundsätzlich sind derzeit alle Komponenten in Docker gehostet. 
 Dadurch ist die gesamet Lösung plattformunabhängig und kann daher auf allen gängigen OS ausgeführt werden.
@@ -11,6 +22,7 @@ In der folgenden Darstellung kann man den aktuellen Containeraufbau des Projekte
 
 Die Konfiguration *muss* über das `.env`-File vorgenommen werden.
 Derzeit werden folgende Settings benötigt:
+
 ``` sh 
 DB_HOST=<IP-Adresse von der DB>
 DB_PORT=<Port von der DB> 
@@ -45,3 +57,29 @@ Um auf PG-Admin4 zuzugreifen muss einfach auf die Adresse `localhost:8080` zugeg
 Es sollte ein Login-Seite erscheinen die wie folgt ausschaut:
 ![Admin von PG-Admin](doc/images/pg_admin_login.png)
 Die Logindaten können in der .env Datei konfiguriert werden.
+
+## Entwicklungs-Guide
+Hier wird kurz wie die einzelnen Komponenten aufgebaut sind und wie diese weiterentwickelt werden können.
+
+### Docker-Compose Setup
+Die Docker-Container-Struktur kann aus der obigen Grafik entnommen werden.
+Alle Konfigurationen, welche für die Struktur benötigt werden, sind in dem `docker-compose.yml`-File zu finden.
+
+### TimescaleDB Setup
+Die Datenbank wird über den `init.sql`-Script umgesetzt. 
+Jedes SQL-Statement in der Datei wir beim initialisieren des Datenbank-Containers ausgeführt. 
+Wichtig ist nur zu erwähnen, dass die SQL-Statements nur umgesetzt werden, sofern kein Datenbank-Volumn vorhanden ist.
+
+### Grafana Setup
+Alle Konfigurationen welche mit Grafana zu tun haben, sind im `Grafana`-Ordner zu finden.
+Im `dashboards`-Ordner findet man die exportierten `json`-Datein von den erstellten Dashboards.
+Sollten Änderungen an einem Dashboard durchgeführt werden, muss dieses anschließend neu exportieren werden und in diesen Ordner gespeichert werden.
+Im `provisioning`-Ordner sind alle Konfigurationen enhalten, welche bei der Initialisierung ausgeführt werden.
+In der `dashboard.yml` Datei im `Grafana/provisioning/dashboards` Ordner sind die Konfigurationen hinterlegt, welche die verfügbaren Dashboards aus dem `dashboards` Ordner laden.
+Im `datasources`-Ordner sind die Konfigurationen für alle Datenquellen, welche nach dem Start verfügbar seien sollen.
+Die Genauer aufbau kann in der offizellen [Grafana Dokumentation](https://grafana.com/docs/grafana/latest/administration/provisioning/)
+
+### PgAdmin Setup
+
+
+### Python-Script Setup
