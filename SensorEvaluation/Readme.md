@@ -72,13 +72,13 @@ Jedes SQL-Statement in der Datei wir beim initialisieren des Datenbank-Container
 Wichtig ist nur zu erwähnen, dass die SQL-Statements nur umgesetzt werden, sofern kein Datenbank-Volumn vorhanden ist.
 
 ### Grafana Setup
-Alle Konfigurationen welche mit Grafana zu tun haben, sind im `Grafana`-Ordner zu finden. \\
-Im `dashboards`-Ordner findet man die exportierten `json`-Datein von den erstellten Dashboards. \\
+Alle Konfigurationen welche mit Grafana zu tun haben, sind im `Grafana`-Ordner zu finden.  
+Im `dashboards`-Ordner findet man die exportierten `json`-Datein von den erstellten Dashboards.  
 Sollten Änderungen an einem Dashboard durchgeführt werden, muss dieses anschließend neu exportieren werden und in diesen Ordner gespeichert werden.
 
 
-Im `provisioning`-Ordner sind alle Konfigurationen enhalten, welche bei der Initialisierung ausgeführt werden. \\
-In der `dashboard.yml` Datei im `Grafana/provisioning/dashboards` Ordner sind die Konfigurationen hinterlegt, welche die verfügbaren Dashboards aus dem `dashboards` Ordner laden.\\
+Im `provisioning`-Ordner sind alle Konfigurationen enhalten, welche bei der Initialisierung ausgeführt werden.  
+In der `dashboard.yml` Datei im `Grafana/provisioning/dashboards` Ordner sind die Konfigurationen hinterlegt, welche die verfügbaren Dashboards aus dem `dashboards` Ordner laden.  
 Im `datasources`-Ordner sind die Konfigurationen für alle Datenquellen, welche nach dem Start verfügbar seien sollen.
 Die Genauer aufbau kann in der offizellen [Grafana Dokumentation](https://grafana.com/docs/grafana/latest/administration/provisioning/)
 
