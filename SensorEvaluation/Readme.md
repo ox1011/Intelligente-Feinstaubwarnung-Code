@@ -73,7 +73,7 @@ Wichtig ist nur zu erwähnen, dass die SQL-Statements nur umgesetzt werden, sofe
 
 ### Grafana Setup
 Alle Konfigurationen welche mit Grafana zu tun haben, sind im `Grafana`-Ordner zu finden.  
-Im `dashboards`-Ordner findet man die exportierten `json`-Datein von den erstellten Dashboards.  
+Im `dashboards`-Ordner findet man die exportierten `json`-Datein von den erstellten Dashboards.
 Sollten Änderungen an einem Dashboard durchgeführt werden, muss dieses anschließend neu exportieren werden und in diesen Ordner gespeichert werden.
 
 
@@ -83,6 +83,9 @@ Im `datasources`-Ordner sind die Konfigurationen für alle Datenquellen, welche 
 Die Genauer aufbau kann in der offizellen [Grafana Dokumentation](https://grafana.com/docs/grafana/latest/administration/provisioning/)
 
 ### PgAdmin Setup
-
+Die Konfiguration ist im `PgAdmin`-Ordner zu finden, genauer gesagt in dem `servers.json`-File.
+Derzeit befinden sich darin nur Einstellungen, um die Verbindung zur Datenbank direkt herzustellen.
+Da es derzeit nicht möglich ist, diese Werte durch `docker-compose` zu setzten, müssen die Konfigurationen mit denen in der `.env`-Datei übereinstimmen.
 
 ### Python-Script Setup
+Der `delete_script.py` ist in dem zugehörigen Ordner zu finden. Hier werden auch alle Packages in der `requirements.txt`-Datei definiert.
