@@ -88,4 +88,4 @@ Derzeit befinden sich darin nur Einstellungen, um die Verbindung zur Datenbank d
 Da es derzeit nicht möglich ist, diese Werte durch `docker-compose` zu setzten, müssen die Konfigurationen mit denen in der `.env`-Datei übereinstimmen.
 
 ### Python-Script Setup
-Der `delete_script.py` ist in dem zugehörigen Ordner zu finden. Hier werden auch alle Packages in der `requirements.txt`-Datei definiert.
+Die Python-Skripte `update_script.py` und `delete_script.py` sind in dem zugehörigen Ordner zu finden. Hier werden auch alle Packages in der `requirements.txt`-Datei definiert.
