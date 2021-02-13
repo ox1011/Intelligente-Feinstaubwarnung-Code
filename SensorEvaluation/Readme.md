@@ -10,6 +10,8 @@
     - [Grafana Setup](#grafana-setup)
     - [PgAdmin Setup](#pgadmin-setup)
     - [Python-Script Setup](#python-script-setup)
+      - [Update-Script](#update-script)
+      - [Delete-Script](#delete-script)
 
 ## Aufbau
 Grundsätzlich sind derzeit alle Komponenten in Docker gehostet. 
@@ -89,3 +91,10 @@ Da es derzeit nicht möglich ist, diese Werte durch `docker-compose` zu setzten,
 
 ### Python-Script Setup
 Die Python-Skripte `update_script.py` und `delete_script.py` sind in dem zugehörigen Ordner zu finden. Hier werden auch alle Packages in der `requirements.txt`-Datei definiert.
+
+#### Update-Script
+Das Datenbankmodell ist eine kürzere Variante als die, die `luftdaten.info` verwendet. Die Daten kommen von `http://api.luftdaten.info/static/v1/data.json`.
+![Datenbankmodell](doc/images/table_definitions.png)
+
+#### Delete-Script
+Das Skript misst die Auslastung `df -h` (disk free) der Partition. Wird ein Schwellwert erreicht, so triggert er den Löschvorgang. Dadurch werden die ältesten Daten entfernt. Das vermeidet, das der Server aufgrund der Datenmenge abstürzt.
