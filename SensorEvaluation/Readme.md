@@ -94,6 +94,7 @@ Die Python-Skripte `update_script.py` und `delete_script.py` sind in dem zugehö
 
 #### Update-Script
 Das Datenbankmodell ist eine kürzere Variante als die, die `luftdaten.info` verwendet. Die Daten kommen von `http://api.luftdaten.info/static/v1/data.json`.
+<br>
 ![Datenbankmodell](doc/images/table_definitions.png)
 
 #### Delete-Script
