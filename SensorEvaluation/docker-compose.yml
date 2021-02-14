@@ -35,13 +35,30 @@ services:
   update_job:
     container_name: update_job
     build: 
-      context: ./UpdateScript
+      context: ./Script
+      dockerfile: ./UpdateScript/Dockerfile
       args:
         - ARG_DB_HOST=${DB_HOST}
         - ARG_DB_PORT=${DB_PORT}
         - ARG_DB_NAME=${DB_NAME}
         - ARG_DB_USER=${DB_USER}
         - ARG_DB_PASSWD=${DB_PASSWD}
+    depends_on:
+      - ofelia 
+    networks:
+      - docker_network
+
+  delete_job:
+    container_name: delete_job
+    build: 
+      context: ./Script
+      dockerfile: ./DeleteScript/Dockerfile
+      args:
+      - ARG_DB_HOST=${DB_HOST}
+      - ARG_DB_PORT=${DB_PORT}
+      - ARG_DB_NAME=${DB_NAME}
+      - ARG_DB_USER=${DB_USER}
+      - ARG_DB_PASSWD=${DB_PASSWD}
     depends_on:
       - ofelia 
     networks:
@@ -73,6 +90,8 @@ services:
     labels:
       ofelia.job-run.update_job_service.schedule: "@every 30m"
       ofelia.job-run.update_job_service.container: "update_job"
+      ofelia.job-run.delete_job_service.schedule: "@daily"
+      ofelia.job-run.delete_job_service.container: "delete_job"
 
 
 networks:

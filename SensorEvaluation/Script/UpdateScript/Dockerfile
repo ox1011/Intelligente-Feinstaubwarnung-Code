@@ -27,4 +27,4 @@ ENV DB_PASSWD "$ARG_DB_PASSWD"
 
 
 # command to run on container start
-ENTRYPOINT [ "python", "./delete_script" ]
+ENTRYPOINT [ "python", "./update_script.py" ]

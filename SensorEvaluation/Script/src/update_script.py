@@ -5,15 +5,17 @@ import logging
 import requests
 import psycopg2  # postgres interface
 
-DB_NAME = '#name'
-DB_USER = '#user'
-DB_PASSWD = '#passwd'
-DB_HOST = '#host'
-DB_PORT = '#port'
+# Set needed settings
+DB_HOST = os.environ[ 'DB_HOST' ]
+DB_PORT = int(os.environ[ 'DB_PORT' ])
+DB_NAME = os.environ[ 'DB_NAME' ]
+DB_USER = os.environ[ 'DB_USER' ]
+DB_PASSWD = os.environ[ 'DB_PASSWD' ]
 
 LUFTDATEN_URL = "http://api.luftdaten.info/static/v1/data.json"
 
 SQL_STMT_DELETE_SENSORDATAVALUES_AFTER_30_DAYS = "DELETE FROM sensordatavalues WHERE date < NOW()-'30 day'::INTERVAL"
+SQL_STMT_DELETE_SENSORDATAVALUES_OLDEST_TWO_DAYS = "DELETE FROM sensordatavalues WHERE date < (SELECT MIN(date) from sensordatavalues)+'2 day'::INTERVAL"
 
 SQL_STMT_GET_ALL_LOCATION_ID = "SELECT array_agg(id) FROM location"
 SQL_STMT_GET_ALL_SENSOR_ID = "SELECT array_agg(id) FROM sensor"
@@ -37,10 +39,8 @@ def get_JSON_data(url):
         data = ""
     return data
 
-# input: string password
+# input: object logging
 # output: true if password is correct otlherwise false
-
-
 def check_right_password_DB(log):
     conn = None
     try:
@@ -58,10 +58,8 @@ def check_right_password_DB(log):
             conn.close()
     return True
 
-# input: string sql_stmt, string password
+# input: string sql_stmt
 # output: list of data from query or empty list
-
-
 def get_all_data_DB(sql_stmt):
     conn = None
     try:
@@ -83,10 +81,8 @@ def get_all_data_DB(sql_stmt):
     else:
         return result
 
-# input: list insert_data, string sql_stmt, string password
+# input: list insert_data, string sql_stmt
 # output: nothing
-
-
 def insert_data_DB(insert_data, sql_stmt):
     if insert_data:
         conn = None
@@ -104,10 +100,8 @@ def insert_data_DB(insert_data, sql_stmt):
             if conn is not None:
                 conn.close()
 
-# input: string sql_stmt, string password
+# input: string sql_stmt
 # output: nothing
-
-
 def delete_data_DB(sql_stmt):
     conn = None
     try:
@@ -124,12 +118,10 @@ def delete_data_DB(sql_stmt):
         if conn is not None:
             conn.close()
 
-# input: list data, string password
+# input: list data
 # output: adjust list of data or empty list
-
-
 def prepare_sensor_data(data):
-    if data:
+    if data and type(data) == type(list()):
         existing_sensor_ids = get_all_data_DB(SQL_STMT_GET_ALL_SENSOR_ID)
         data_list = []
         for d in data:
@@ -144,12 +136,10 @@ def prepare_sensor_data(data):
     else:
         return []
 
-# input: list data, string password
+# input: list data
 # output: adjust list of data or empty list
-
-
 def prepare_location_data(data):
-    if data:
+    if data and type(data) == type(list()):
         existing_sensor_ids = get_all_data_DB(SQL_STMT_GET_ALL_SENSOR_ID)
         existing_location_ids = get_all_data_DB(SQL_STMT_GET_ALL_LOCATION_ID)
         data_list = []
@@ -166,18 +156,16 @@ def prepare_location_data(data):
     else:
         return []
 
-# input: list data, string password
+# input: list data
 # output: adjust list of data or empty list
-
-
 def prepare_sensordatavalues_data(data):
-    if data:
+    if data and type(data) == type(list()):
         existing_sensor_ids = get_all_data_DB(SQL_STMT_GET_ALL_SENSOR_ID)
         data_list = []
         for d in data:
             for val in d["sensordatavalues"]:
                 try:
-                    if (d["sensor"]["id"] in existing_sensor_ids) and (str(val["value"]) not in "unavailable unknown") and val["value"] and val["value_type"]:
+                    if (d["sensor"]["id"] in existing_sensor_ids) and (str(val["value"]) not in "unavailable unknown null") and val["value"] and val["value_type"]:
                         splitted = d["timestamp"].split(" ")
                         # table sensordatavalues
                         # id, sensor_id, value, value_type, date, time
@@ -191,10 +179,8 @@ def prepare_sensordatavalues_data(data):
     else:
         return []
 
-# input: string passwprd
+# input: object logging
 # output: nothing
-
-
 def main(log):
     log.info("Get data from luftdaten.info")
     data = get_JSON_data(LUFTDATEN_URL)
@@ -217,20 +203,13 @@ def main(log):
 
 
 if __name__ == "__main__":
-    # Set needed settings
-    DB_HOST = os.environ[ 'DB_HOST' ]
-    DB_PORT = int(os.environ[ 'DB_PORT' ])
-    DB_NAME = os.environ[ 'DB_NAME' ]
-    DB_USER = os.environ[ 'DB_USER' ]
-    DB_PASSWD = os.environ[ 'DB_PASSWD' ]
-
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.getLogger('pika').setLevel(logging.WARNING)
     log = logging.getLogger()
 
     if check_right_password_DB(log):
-        log.info("Start the update process.")
+        log.info("Start the update process")
         main(log)
-        log.info("Finish the update process.")
+        log.info("Finish the update process")
     else:
-        log.error("Connection to db did not work!")
+        log.error("Connection to db did not work")

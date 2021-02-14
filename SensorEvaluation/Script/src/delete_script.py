@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     if (current_workload_in_percent > MAX_WORKLOAD_IN_PERCENT) and update_script.check_right_password_DB(log):
         log.info("Start delete process")
-        update_script.delete_data_DB(update_script.SQL_STMT_DELETE_SENSORDATAVALUES_OLDEST_DAY)
+        update_script.delete_data_DB(update_script.SQL_STMT_DELETE_SENSORDATAVALUES_OLDEST_TWO_DAYS)
         log.info("Finish delete process")
     else:
-        log.error("Delete process failed")
+        log.error("Didnt start delete process")
