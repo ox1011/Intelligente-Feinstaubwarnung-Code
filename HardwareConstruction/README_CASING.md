@@ -39,7 +39,7 @@ Dann kann der Sensor angeschlossen werden und die Muffe geschlossen werden.
 An das Board kommt nun noch die 9V Spannungsversorgung. Ich habe den Anschluss für die Batterie im unteren Muffenstopfen angeklebt. Jetzt kann die Batterie angeschlossen werden. Der Sensor ist in Betrieb und sendet nun kontinuirlich Daten an TTN.
 
 
-![](Bilder/IMG_9944.jpeg)
+![](BilderAufbau/IMG_9944.jpeg)
 
 Wenn der Sensor neu geflasht werden soll, kann dies ganz einfach dadurch geschehen, indem der untere Muffenstopfen geöffnet wird und das USB Kabel angeschlossen wird.
 
