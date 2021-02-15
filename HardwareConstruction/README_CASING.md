@@ -14,7 +14,7 @@
 * Marley 2x HT-Muffenstopfen(DIN75)
 * Marley HT-Überschiebmuff(DIN75)
 
-![Materialien](BilderAufbau/IMG_9920.jpeg)
+![Materialien](/BilderAufbau/IMG_9920.jpeg)
 #### Vorbereitungen
 Zunächst habe ich zwei Löcher bohren müssen. Einmal für den Schlauch des SDS Dust Sensors. Und einmal für die Antenne des Lora Boards. 
 Für den Schlauch habe ich einen 7mm Bohrer genutzt und für die Antenne einen 8mm Bohrer. 
