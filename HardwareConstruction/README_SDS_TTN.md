@@ -33,7 +33,9 @@ zum abstuerzen gebracht.
 
 Wenn die sleep und wakeup Methode des SDS Sensors verwendet werden soll und es
 sich um einen aktuelle SDS Sensor handelt muss die sds011.cpp noch modifiziert
-werden, da es sonst zu Komplikationen kommt.
+werden, da es sonst zu Komplikationen kommt. Diese *.cpp liegt bei allen
+anderen Libraries, welche ihr ueber die Arduino IDE geladen habt. Meist ist
+das unter `/usr/documents/Arduino/libraries`
 
 Hier eine mgl Loesung:
 
