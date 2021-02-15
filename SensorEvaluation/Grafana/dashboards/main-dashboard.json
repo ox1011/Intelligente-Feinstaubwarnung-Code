@@ -19,6 +19,87 @@
   "links": [],
   "panels": [
     {
+      "circleMaxSize": 30,
+      "circleMinSize": 2,
+      "colors": [
+        "#56A64B",
+        "rgba(237, 129, 40, 0.89)",
+        "#F2495C"
+      ],
+      "datasource": "POSTGRES_ORG_VALUES",
+      "decimals": 0,
+      "esMetric": "Count",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 22,
+        "x": 0,
+        "y": 0
+      },
+      "hideEmpty": false,
+      "hideZero": false,
+      "id": 6,
+      "initialZoom": 1,
+      "locationData": "table",
+      "mapCenter": "(0°, 0°)",
+      "mapCenterLatitude": 0,
+      "mapCenterLongitude": 0,
+      "maxDataPoints": 1,
+      "mouseWheelZoom": false,
+      "pluginVersion": "7.3.6",
+      "showLegend": true,
+      "stickyLabels": false,
+      "tableQueryOptions": {
+        "geohashField": "geohash",
+        "labelField": "sensor_id",
+        "latitudeField": "latitude",
+        "longitudeField": "longitude",
+        "metricField": "value",
+        "queryType": "coordinates"
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT DISTINCT ON (sen.sensor_id)\nsen.sensor_id,\nvalue, \nlatitude, \nlongitude\nFROM sensordatavalues as sen \nINNER JOIN \nlocation as loc \nON \nsen.sensor_id = loc.sensor_id \nWHERE sen.value_type = 'P1' AND sen.value < 1000\nORDER BY sen.sensor_id, (sen.time+sen.date) DESC",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": "30,50",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Map",
+      "type": "grafana-worldmap-panel",
+      "unitPlural": "",
+      "unitSingle": "",
+      "valueName": "total"
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -51,10 +132,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 9,
+        "w": 22,
         "x": 0,
-        "y": 0
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 4,
@@ -169,9 +250,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 12,
+        "w": 22,
         "x": 0,
-        "y": 8
+        "y": 27
       },
       "hiddenSeries": false,
       "hideTimeOverride": false,
@@ -209,7 +290,7 @@
           "hide": false,
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  value,\n  $__time(time + date),\n  value_type\nFROM\n  sensordatavalues\nWHERE (value_type = 'P1' OR value_type = 'P2') AND sensor_id = 14326 AND $__timeFilter(time+date) \nORDER BY time + date ASC \n",
+          "rawSql": "SELECT\n  value,\n  $__time(time + date),\n  value_type\nFROM\n  sensordatavalues\nWHERE (value_type = 'P1' OR value_type = 'P2') AND sensor_id = 56253 AND $__timeFilter(time+date) \nORDER BY time + date ASC \n",
           "refId": "A",
           "select": [
             [
@@ -313,5 +394,5 @@
   "timezone": "",
   "title": "Sensor values",
   "uid": "zqDX-maGz",
-  "version": 7
+  "version": 12
 }
