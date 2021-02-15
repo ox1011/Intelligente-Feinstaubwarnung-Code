@@ -1,12 +1,9 @@
-# IoT Bericht Sassan Asnaashari
-## Der vierte Scrum Sprint - Bericht 4
+# Anleitung Gehaeuse Bau
 
 ---
 
-## Task: Sensor und LoraBoard zusammenbauen
-[Task auf Jira](https://speedtechengineer.atlassian.net/browse/IF-42?atlOrigin=eyJpIjoiNDViYWRmOTI3Y2M3NGE3MTkzNWU4Y2FlN2Q2NDk4YzIiLCJwIjoiaiJ9)
 
-### Anforderungen des PO:
+### Anforderungen 
 * Aufbau mit Akkubetrieb
 * Wasserdichtigkeit (Spritzwasserschutz)
 
