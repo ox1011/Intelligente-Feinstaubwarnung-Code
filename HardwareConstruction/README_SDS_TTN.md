@@ -94,7 +94,7 @@ Wenn alles eingerichtet ist, koennt ihr die Arduinos in einem Gehaeuse verbauen,
 damit es Outdoor spirtzwasser geschuetzt ist.
 
 Dafuer haben wir auch eine Anleitung geschrieben. [Anleitung
-Gehaeuse](/.../.../...).
+Gehaeuse](README_CASING.md).
 
 ### Daten an Luftdaten.info senden
 
