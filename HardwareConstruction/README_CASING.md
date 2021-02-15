@@ -39,7 +39,15 @@ An das Board kommt nun noch die 9V Spannungsversorgung. Ich habe den Anschluss f
 
 Wenn der Sensor neu geflasht werden soll, kann dies ganz einfach dadurch geschehen, indem der untere Muffenstopfen geöffnet wird und das USB Kabel angeschlossen wird.
 
-### Optional
 ![](BilderAufbau/IMG_9947.jpeg)
+
+Am Ende haben die Kontankte verklebt und alles abgedichtet, damit es Regen aushaelt.
+
+![](BilderAufbau/final.jpeg)
+
+### Optional
+
 * USB B Kabel Verlaengerung, damit ohne zu oeffnen Verbindung zum PC hergestellt werden kann.
 * I/O Schalter
+
+
