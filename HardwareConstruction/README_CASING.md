@@ -43,7 +43,7 @@ Wenn der Sensor neu geflasht werden soll, kann dies ganz einfach dadurch gescheh
 
 Am Ende haben die Kontankte verklebt und alles abgedichtet, damit es Regen aushaelt.
 
-![](BilderAufbau/final.jpeg)
+![](BilderAufbau/finalPicture.jpg)
 
 ### Optional
 
