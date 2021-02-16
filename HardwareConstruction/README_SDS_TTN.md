@@ -22,7 +22,7 @@ In dieser Anleitung richtet ihr das Gateway ein, veraendert die
 config.h und ladet das erste Skript auf die Arduinos.
 
 Ihr solltet Accounts auf folgenden Webseiten erstellen:
-* www.thethingnetwork.de 
+* www.thethingsnetwork.de 
 * https://devices.sensor.community
 
 Ihr braucht dazu folgende Software und Libraries:
