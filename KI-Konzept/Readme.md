@@ -69,6 +69,6 @@
 }
 ```
 
-Output vom letzten Beispiel:
+Output vom letzten Beispiel: <br>
 Anhand des ``` "category":"highway" ``` und ``` "type":"secondary"``` kommt man auf die Information "gut ausgebaute Landstraße" (Hilfreich ist die Tags-Liste). Das es ein Ort (und entsprechender Ortsname) ist kann man am Tag ```"village":"Berchères-les-Pierres"``` ablesen. Bei einer Stadt z.B Sofia sieht der Tag so aus: ```"city":"Sofia"```.
 
