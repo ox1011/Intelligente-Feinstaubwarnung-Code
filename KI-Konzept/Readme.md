@@ -21,7 +21,9 @@
     - [Undefinierttes Gebäude in Regensburg](https://nominatim.openstreetmap.org/reverse?format=geojson&lat=49.01&lon=12.034)
     - [Gut ausgebaute Landsstraße in Berchères-les-Pierres - Ort in Frankreich](https://nominatim.openstreetmap.org/reverse?format=geojson&lat=48.384&lon=1.55)
 
+<br>
 
+Output vom letzten Beispiel:
 ```json
 {
    "type":"FeatureCollection",
@@ -69,6 +71,5 @@
 }
 ```
 
-Output vom letzten Beispiel: <br>
 Anhand des ``` "category":"highway" ``` und ``` "type":"secondary"``` kommt man auf die Information "gut ausgebaute Landstraße" (Hilfreich ist die Tags-Liste). Das es ein Ort (und entsprechender Ortsname) ist kann man am Tag ```"village":"Berchères-les-Pierres"``` ablesen. Bei einer Stadt z.B Sofia sieht der Tag so aus: ```"city":"Sofia"```.
 
