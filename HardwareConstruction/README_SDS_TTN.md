@@ -27,12 +27,12 @@ Ihr braucht dazu folgende Software und Libraries:
 * DHT sensor library
 * Und alle Libraries aus der Anleitungen von Dragino
 
-Ganz wichtig ist es die SDS011 von Herrn Zschiegner zu nehmen. Das war eine der
+Ganz wichtig ist es, die SDS011 von Herrn Zschiegner zu nehmen. Das war eine der
 wenigen, die mit TTN funktioniert haben. Die anderen haben das Gesamtprogramm
 zum abstuerzen gebracht.
 
 Wenn die sleep und wakeup Methode des SDS Sensors verwendet werden soll und es
-sich um einen aktuelle SDS Sensor handelt muss die sds011.cpp noch modifiziert
+sich um einen aktuelle SDS Sensor handelt, muss die sds011.cpp noch modifiziert
 werden, da es sonst zu Komplikationen kommt. Diese *.cpp liegt bei allen
 anderen Libraries, welche ihr ueber die Arduino IDE geladen habt. Meist ist
 das unter `/usr/documents/Arduino/libraries`
@@ -82,8 +82,8 @@ void SDS011::wakeup() {
 
 ### Arduinos flashen und in einem Gehaeuse verbauen
 
-Nach dem Ihr alles vorebreitet habt, koennt ihr uns Skript auf eueren Arduino
-laden und auf an eure Wuensche anpassen.
+Nachdem Ihr alles vorbereitet habt, koennt ihr unser Skript auf eueren Arduino
+laden und an eure Wuensche anpassen.
 
 Das Skript funktioniert so, dass in Abhaengigkeit des schedule_TIME die Methode
 do_send() aufgerufen wird. In dieser Methode werden die Feinstaubwerte und die
@@ -98,8 +98,8 @@ Gehaeuse](README_CASING.md).
 
 ### Daten an Luftdaten.info senden
 
-Momentan sendet das LoRa Shiel die Feinstaub -und Temperaturwerte ueber das
-Gateway an TTN. Um diese Daten auf luftdaten.info zu bekommen haben wir eine
-Dockerloesung genutzt. [!Link zur Dockeranleitung]()
+Momentan sendet das LoRa Shield die Feinstaub -und Temperaturwerte ueber das
+Gateway an TTN. Um diese Daten auf luftdaten.info zu bekommen, haben wir eine
+Dockerloesung genutzt. [Anleitung Docker](README_DATA_TO_LUFTDATEN.md)
 
 
