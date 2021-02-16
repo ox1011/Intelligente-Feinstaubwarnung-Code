@@ -14,25 +14,31 @@ Wir nutzen folgende Hardware:
 * USB D Verlaengerung
 * USB D Kabel
 
-Um die Hardware einzurichten, koennt ihr die Einleitung von Dragino nutzen.
+#### Um die Hardware einzurichten, koennt ihr die Anleitung von Dragino nutzen.
 
 [Dragino Manuel](http://www.dragino.com/downloads/downloads/LoRa_IoT_Kit/v2-Kit/Single%20Channel%20LoRa%20IoT%20Kit%20v2%20User%20Manual_v1.0.6.pdf)
 
 In dieser Anleitung richtet ihr das Gateway ein, veraendert die
 config.h und ladet das erste Skript auf die Arduinos.
 
-Ihr braucht dazu folgende Software und Libraries:
+#### Ihr solltet Accounts auf folgenden Webseiten erstellen:
+
+* www.thethingsnetwork.de 
+* https://devices.sensor.community
+
+#### Ihr braucht dazu folgende Software und Libraries:
+
 * Arduino IDE
 * SDS011 von R.Zschiegner
 * DHT sensor library
 * Und alle Libraries aus der Anleitungen von Dragino
 
-Ganz wichtig ist es die SDS011 von Herrn Zschiegner zu nehmen. Das war eine der
+Ganz wichtig ist es, die SDS011 von Herrn Zschiegner zu nehmen. Das war eine der
 wenigen, die mit TTN funktioniert haben. Die anderen haben das Gesamtprogramm
 zum abstuerzen gebracht.
 
 Wenn die sleep und wakeup Methode des SDS Sensors verwendet werden soll und es
-sich um einen aktuelle SDS Sensor handelt muss die sds011.cpp noch modifiziert
+sich um einen aktuelle SDS Sensor handelt, muss die sds011.cpp noch modifiziert
 werden, da es sonst zu Komplikationen kommt. Diese *.cpp liegt bei allen
 anderen Libraries, welche ihr ueber die Arduino IDE geladen habt. Meist ist
 das unter `/usr/documents/Arduino/libraries`
@@ -82,8 +88,8 @@ void SDS011::wakeup() {
 
 ### Arduinos flashen und in einem Gehaeuse verbauen
 
-Nach dem Ihr alles vorebreitet habt, koennt ihr uns Skript auf eueren Arduino
-laden und auf an eure Wuensche anpassen.
+Nachdem Ihr alles vorbereitet habt, koennt ihr unser Skript auf eueren Arduino
+laden und an eure Wuensche anpassen.
 
 Das Skript funktioniert so, dass in Abhaengigkeit des schedule_TIME die Methode
 do_send() aufgerufen wird. In dieser Methode werden die Feinstaubwerte und die
@@ -98,8 +104,8 @@ Gehaeuse](README_CASING.md).
 
 ### Daten an Luftdaten.info senden
 
-Momentan sendet das LoRa Shiel die Feinstaub -und Temperaturwerte ueber das
-Gateway an TTN. Um diese Daten auf luftdaten.info zu bekommen haben wir eine
-Dockerloesung genutzt. [!Link zur Dockeranleitung]()
+Momentan sendet das LoRa Shield die Feinstaub -und Temperaturwerte ueber das
+Gateway an TTN. Um diese Daten auf luftdaten.info zu bekommen, haben wir eine
+Dockerloesung genutzt. [Anleitung Docker](README_DATA_TO_LUFTDATEN.md)
 
 
