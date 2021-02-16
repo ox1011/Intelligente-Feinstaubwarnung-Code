@@ -21,6 +21,10 @@ Um die Hardware einzurichten, koennt ihr die Anleitung von Dragino nutzen.
 In dieser Anleitung richtet ihr das Gateway ein, veraendert die
 config.h und ladet das erste Skript auf die Arduinos.
 
+Ihr solltet Accounts auf folgenden Webseiten erstellen:
+* www.thethingnetwork.de 
+* https://devices.sensor.community
+
 Ihr braucht dazu folgende Software und Libraries:
 * Arduino IDE
 * SDS011 von R.Zschiegner
