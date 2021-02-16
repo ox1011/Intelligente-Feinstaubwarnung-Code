@@ -14,18 +14,20 @@ Wir nutzen folgende Hardware:
 * USB D Verlaengerung
 * USB D Kabel
 
-Um die Hardware einzurichten, koennt ihr die Anleitung von Dragino nutzen.
+#### Um die Hardware einzurichten, koennt ihr die Anleitung von Dragino nutzen.
 
 [Dragino Manuel](http://www.dragino.com/downloads/downloads/LoRa_IoT_Kit/v2-Kit/Single%20Channel%20LoRa%20IoT%20Kit%20v2%20User%20Manual_v1.0.6.pdf)
 
 In dieser Anleitung richtet ihr das Gateway ein, veraendert die
 config.h und ladet das erste Skript auf die Arduinos.
 
-Ihr solltet Accounts auf folgenden Webseiten erstellen:
+#### Ihr solltet Accounts auf folgenden Webseiten erstellen:
+
 * www.thethingsnetwork.de 
 * https://devices.sensor.community
 
-Ihr braucht dazu folgende Software und Libraries:
+#### Ihr braucht dazu folgende Software und Libraries:
+
 * Arduino IDE
 * SDS011 von R.Zschiegner
 * DHT sensor library
